@@ -1,0 +1,7 @@
+packages/*
+!packages/.gitkeep
+lists/*
+!lists/.gitkeep
+pacman/*
+!pacman/gnupg/.gitkeep
+!pacman/db/.gitkeep
