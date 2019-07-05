@@ -28,6 +28,7 @@ check_cmd powerpill
 check_cmd paccache
 
 echo "# Generating package list..."
+mkdir -p ./lists
 for filename in ./lists/*; do
 	echo "$(basename "$filename"): $(wc -l < "$filename") packages";
 done
@@ -35,6 +36,7 @@ package_list="$(cat ./lists/* | sort -u)"
 echo "Generated list with $(echo "$package_list" | wc -l) packages"
 
 echo "# Updating package database..."
+mkdir -p ./packages ./pacman/hooks ./pacman/gnupg ./pacman/hooks
 run_pacman -Sy
 
 echo "# Downloading updated packages"
